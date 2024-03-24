@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
+import ContactUs from './Pages/ContactUs.tsx';
+import AboutUs from './Pages/AboutUs.tsx';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import {
@@ -8,14 +10,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
   },
   {
-    path: "/about",
-    element: <div>about</div>,
+    path: "/About",
+    element: <AboutUs/>,
+  },
+  {
+    path: "/ContactUs",
+    element: <ContactUs/>,
   },
 ]);
 
