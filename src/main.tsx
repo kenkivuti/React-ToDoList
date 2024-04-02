@@ -1,34 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import App from './App.tsx'
-import ContactUs from './Pages/ContactUs.tsx';
-import AboutUs from './Pages/AboutUs.tsx';
+import store from './store/index.ts';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-  },
-  {
-    path: "/About",
-    element: <AboutUs/>,
-  },
-  {
-    path: "/ContactUs",
-    element: <ContactUs/>,
-  },
-]);
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
 )

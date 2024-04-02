@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Slider from "../components/Slider";
 
 const AboutUs = () => {
+  const navigate =useNavigate();
+  const handleClick = () =>{
+    navigate("/")
+  }
   return (
     <div className="container">
       <h1>ABOUT US PAGE</h1>
@@ -70,6 +75,9 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
+      <br />
+      
+      <button onClick={handleClick}>home</button>
     </div>
   );
 };
