@@ -6,7 +6,7 @@ import HomePage from './Pages/index.tsx';
 import Layout from './components/Layout.tsx';
 import Login from './Pages/Login.tsx';
 import Logout from './Pages/logout.tsx';
-import ProtectedRoute from './components/ProtectedRoute.tsx';
+// import ProtectedRoute from './components/ProtectedRoute.tsx';
 // import { useState } from 'react';
 // import { Prev } from 'react-bootstrap/esm/PageItem';
 
@@ -21,7 +21,7 @@ const App = () => {
     <Routes>
       <Route path="/Login" element={<Login/>} />
        <Route element={<Layout/> }>
-       <ProtectedRoute path="/" element={<HomePage/>} />
+       <Route path="/" element={<HomePage/>} />
        <Route path="/About" element={<AboutUs/>} />
        <Route path="/ContactUs" element={<ContactUs/>} />
        <Route path="/logout" element={<Logout/>} />

@@ -1,27 +1,26 @@
 import React from 'react';
-import { Redirect, Route, RouteProps } from 'react-router-dom';
-
-
+import { Route, Redirect } from 'react-router-dom';
 
 interface ProtectedRouteProps {
-    element: any;
-    path: string;
-  }
-  
-  const ProtectedRoute: React.FC<ProtectedRouteProps> = (props) => {
-    const {  ...routeProps } = props;
-   const token:string = localStorage.getItem("token") || "";
-    return (
-      <Route
-        {...routeProps}
-        render={({ }) =>
-        token && token !== "" ?  (
-            <Redirect to={{ pathname: "/", state: { from: location } }} />
-          ) : (
-            <Redirect to={{ pathname: "/Login", state: { from:location } }} />
-          )
-        }
-      />
-    );
-  };
-  export default ProtectedRoute;
+  element: any;
+  path: string;
+}
+
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, path }) => {
+  const token: string | null = localStorage.getItem("token") || null;
+
+  return (
+    <Route
+      path={path}
+      Component={({  }) =>
+        token && token !== "" ? (
+          <Redirect to={{ pathname: "/", state: { from: location } }} />
+        ) : (
+          <Redirect to={{ pathname: "/Login", state: { from: location } }} />
+        )
+      }
+    />
+  );
+};
+
+export default ProtectedRoute;

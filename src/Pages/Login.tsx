@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import '../store/login.css'
 // import {setAuthentication  } from "../store/authAction"
 import axios from "axios";
 import Layout from "../components/Layout";
@@ -59,39 +58,37 @@ function Login() {
   };
 
   return (
-    <div >
+    <div>
       <Layout />
       <br />
       <br />
-     <div style={{ border: '3px solid', padding: '20px', borderRadius: '5px' }}>
-      <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="username"
-            name="name"
-            placeholder="Enter username"
-          />
-          <Form.Text className="text-muted">
-            make sure its the correct username.
-          </Form.Text>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+     <div className="login-page">
+      <div className="left">
+        <h3>TO Do</h3>
+        <h4>Welcome <br />Start your journey <br />now with our <br/>Management System! </h4>
+      </div>
+      <div className="Right">
+        <h3>Login to Your Account</h3>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input 
+             type="username"
+             name="name"
+             required
+           />
+           <br /><br />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input 
+             type="password"
+             name="password"
+             required
+           />
+        </div>
+        <br /><br />
+        <button className="login-button" type="submit">Login</button>
+      </div>
       </div>
     </div>
   );
