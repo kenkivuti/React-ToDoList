@@ -1,26 +1,15 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import  { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
-interface ProtectedRouteProps {
-  element: any;
-  path: string;
+export default function ProtectedRoute() {
+    const navigate = useNavigate()
+    //hook to perform side effects when the component mounts
+    useEffect(() => {
+        const loginStatus = localStorage.getItem('isLoggedIn')
+        // Authentication Check
+        if (!loginStatus || loginStatus !== "true") {
+            navigate('/Login') //redirecting to login
+        }
+    }, [navigate])
+    return null
 }
-
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, path }) => {
-  const token: string | null = localStorage.getItem("token") || null;
-
-  return (
-    <Route
-      path={path}
-      Component={({  }) =>
-        token && token !== "" ? (
-          <Redirect to={{ pathname: "/", state: { from: location } }} />
-        ) : (
-          <Redirect to={{ pathname: "/Login", state: { from: location } }} />
-        )
-      }
-    />
-  );
-};
-
-export default ProtectedRoute;

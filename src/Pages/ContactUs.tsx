@@ -3,10 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import ProtectedRoute from '../components/ProtectedRoute';
+
+
 
 function ContactUs() {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+      <ProtectedRoute/>
         <div style={{ border: '3px solid', padding: '20px', borderRadius: '5px' }}>
         <Form >
         <Row className="mb-3">

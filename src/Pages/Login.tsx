@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import '../store/login.css'
-// import {setAuthentication  } from "../store/authAction"
+import { useNavigate }  from "react-router-dom";
 import axios from "axios";
 import Layout from "../components/Layout";
 
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   type AuthType = {
     username: string;
@@ -50,6 +51,8 @@ function Login() {
 
       console.log("Done....", responseData);
       localStorage.setItem("Token ", responseData.access_token);
+
+      navigate("/")
     } catch (error) {
       console.log(error);
     }
